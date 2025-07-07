@@ -1,0 +1,95 @@
+--- Loaded Dataset ---
+     Item_ID Item_Name  ... Restock_Lead_Time_Days    Supplier
+0  ITM000001    Item_1  ...                      5  Supplier_A
+1  ITM000002    Item_2  ...                     12  Supplier_C
+2  ITM000003    Item_3  ...                      5  Supplier_C
+3  ITM000004    Item_4  ...                     12  Supplier_C
+4  ITM000005    Item_5  ...                      7  Supplier_B
+
+[5 rows x 9 columns] 
+
+--- Missing Values by Column ---
+Item_ID                   0
+Item_Name                 0
+Category                  0
+Stock_Quantity            0
+Reorder_Level             0
+Unit_Price                0
+Sales_Last_30_Days        0
+Restock_Lead_Time_Days    0
+Supplier                  0
+dtype: int64
+
+--- Statistical Summary ---
+       Stock_Quantity  Reorder_Level  ...  Sales_Last_30_Days  Restock_Lead_Time_Days
+count    100000.00000  100000.000000  ...       100000.000000           100000.000000
+mean         92.69000      57.400000  ...           73.650000                7.560000
+std          58.21175      24.130185  ...           42.904148                3.819234
+min           0.00000      20.000000  ...            0.000000                1.000000
+25%          40.00000      38.000000  ...           33.000000                4.000000
+50%          87.50000      56.500000  ...           79.500000                7.000000
+75%         141.25000      78.000000  ...          106.000000               11.000000
+max         199.00000      99.000000  ...          146.000000               13.000000
+
+[8 rows x 5 columns] 
+
+--- Items Needing Reorder ---
+         Item_ID    Item_Name  Stock_Quantity  Reorder_Level
+0      ITM000001       Item_1              14             71
+1      ITM000002       Item_2              27             28
+2      ITM000003       Item_3              14             52
+4      ITM000005       Item_5              27             73
+13     ITM000014      Item_14               4             51
+...          ...          ...             ...            ...
+99981  ITM099982   Item_99982              62             76
+99985  ITM099986   Item_99986              62             76
+99987  ITM099988   Item_99988              14             71
+99993  ITM099994   Item_99994              43             94
+99999  ITM100000  Item_100000              83             91
+
+[34000 rows x 4 columns]
+
+
+--- Urgent Restock (Top 10) ---
+         Item_ID   Item_Name  ...  Reorder_Level  Restock_Lead_Time_Days
+68297  ITM068298  Item_68298  ...             46                       1
+68296  ITM068297  Item_68297  ...             46                       1
+68199  ITM068200  Item_68200  ...             46                       1
+23193  ITM023194  Item_23194  ...             46                       1
+14898  ITM014899  Item_14899  ...             46                       1
+14840  ITM014841  Item_14841  ...             46                       1
+61539  ITM061540  Item_61540  ...             46                       1
+83699  ITM083700  Item_83700  ...             46                       1
+23400  ITM023401  Item_23401  ...             46                       1
+45017  ITM045018  Item_45018  ...             46                       1
+
+[10 rows x 5 columns]
+
+--- Product Clusters (Fast/Medium/Slow Movers) ---
+     Item_ID Item_Name  Sales_Last_30_Days Sales_Cluster_Label
+0  ITM000001    Item_1                 116                Fast
+1  ITM000002    Item_2                  74              Medium
+2  ITM000003    Item_3                  73              Medium
+3  ITM000004    Item_4                  29                Slow
+4  ITM000005    Item_5                  95              Medium
+
+Linear Regression MSE: 1825.41
+R^2 Score: 0.01
+
+
+Top 10 AI-Based Reorder Recommendations ---
+         Item_ID   Item_Name  ...  Restock_Lead_Time_Days  Reorder_Score
+9455   ITM009456   Item_9456  ...                       1      54.054454
+96283  ITM096284  Item_96284  ...                       1      54.054454
+96279  ITM096280  Item_96280  ...                       1      54.054454
+35163  ITM035164  Item_35164  ...                       1      54.054454
+75     ITM000076     Item_76  ...                       1      54.054454
+72069  ITM072070  Item_72070  ...                       1      54.054454
+35117  ITM035118  Item_35118  ...                       1      54.054454
+86338  ITM086339  Item_86339  ...                       1      54.054454
+86227  ITM086228  Item_86228  ...                       1      54.054454
+86229  ITM086230  Item_86230  ...                       1      54.054454
+
+[10 rows x 6 columns]
+
+Analysis complete. Results saved to inventory_predictions.csv
